@@ -36,6 +36,7 @@ done
 
 mkdir "$PROJECT_PATH"
 cp -a . "$PROJECT_PATH"
+mv "$PROJECT_PATH"/{.,}README.md
 rm -rf "$PROJECT_PATH"/{.git,init.sh}
 git init "$PROJECT_PATH"
 
@@ -59,6 +60,12 @@ if ! test "$PROJECT_EXE"; then
     sed -i -E "s/(.*entry_points=.*)/# \1/" "$PROJECT_PATH"/setup.py
     sed -i -E 's/(def main|    .*)/# \1/g' "$PROJECT_PATH/src/$PROJECT_NAME/__init__.py"
 fi
+
+(
+    cd $PROJECT_PATH
+    git add -A .
+    git commit -m "Initial commit"
+)
 
 
 echo "
