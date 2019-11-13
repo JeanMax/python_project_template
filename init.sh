@@ -56,9 +56,11 @@ sed -i "s|%PROJECT_EXE%|$PROJECT_EXE|g" "$PROJECT_PATH"/setup.py
 mv "$PROJECT_PATH"/src/PROJECT_NAME "$PROJECT_PATH/src/$PROJECT_NAME"
 sed -i "s|%PROJECT_NAME%|$PROJECT_NAME|g" "$PROJECT_PATH/src/$PROJECT_NAME/__init__.py"
 
-if ! test "$PROJECT_EXE"; then
-    sed -i -E "s/(.*entry_points=.*)/# \1/" "$PROJECT_PATH"/setup.py
-    sed -i -E 's/(def main|    .*)/# \1/g' "$PROJECT_PATH/src/$PROJECT_NAME/__init__.py"
+if test "$PROJECT_EXE"; then
+    echo > "$PROJECT_PATH/src/$PROJECT_NAME/__init__.py"
+else
+    sed -i -E "s/    (entry_points=.*)/    # \1/" "$PROJECT_PATH"/setup.py
+    rm "$PROJECT_PATH/src/$PROJECT_NAME/__main__.py"
 fi
 
 (
@@ -69,6 +71,18 @@ fi
 
 
 echo "
-Your project has been generated in $PROJECT_PATH
+Your project has been generated in $PROJECT_PATH!"
 
-Don't forget to add your dependencies in setup.py, in the 'install_requires' array."
+if test "$PROJECT_EXE"; then
+    echo "
+An example of 'main' has been created in '$PROJECT_PATH/src/$PROJECT_NAME/hello_world.py'
+It is called from '$PROJECT_PATH/src/$PROJECT_NAME/__main__.py', so if you have so renaming to do, it's there.
+"
+else
+    echo "
+An example function for your lib has been created in '$PROJECT_PATH/src/$PROJECT_NAME/hello_world.py'.
+You should also take look into '$PROJECT_PATH/src/$PROJECT_NAME/__init__.py' on how to export function to the end user.
+"
+fi
+
+echo "Don't forget to add your dependencies in setup.py, in the 'install_requires' array."

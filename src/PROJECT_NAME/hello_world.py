@@ -1,4 +1,8 @@
+"""
+Some useful documentation
+"""
 
 
-def yo():
+def main():
+    """Entry point"""
     print("yo")
