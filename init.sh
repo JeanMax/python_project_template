@@ -55,6 +55,7 @@ sed -i "s|%PROJECT_EXE%|$PROJECT_EXE|g" "$PROJECT_PATH"/setup.py
 
 mv "$PROJECT_PATH"/src/PROJECT_NAME "$PROJECT_PATH/src/$PROJECT_NAME"
 sed -i "s|%PROJECT_NAME%|$PROJECT_NAME|g" "$PROJECT_PATH/src/$PROJECT_NAME/__init__.py"
+sed -i "s|%PROJECT_NAME%|$PROJECT_NAME|g" "$PROJECT_PATH/src/$PROJECT_NAME/__main__.py"
 
 if ! test "$PROJECT_EXE"; then
     sed -i -E "s/    (entry_points=.*)/    # \1/" "$PROJECT_PATH"/setup.py
