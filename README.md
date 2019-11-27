@@ -5,15 +5,15 @@ This repo is meant to be use as a template for your other python projects. Just 
 
 ## Code organisation
 
-Your python code should be place in the folder ```src/<PROJECT_NAME>```
-* If your project is a library, an example file ```hello_world.py``` has been created with a dummy function. That dummy function is included in ```src/<PROJECT_NAME>/__init__.py``` as an example on how to export a function to the library end user.
-* If your project is a script, the same ```hello_world.py``` file will serve as an example of 'main'. It is called from ```src/<PROJECT_NAME>/__main__.py```, so if you have so renaming to do, it's there.
+Your python code should be placed in the folder ```src/<PROJECT_NAME>```
+* If your project is a library, an example file ```hello_world.py``` has been created with a dummy function. That function is included in ```src/<PROJECT_NAME>/__init__.py``` as an example on how to export a function to the end user of your library.
+* If your project is a script, the same ```hello_world.py``` file will serve as an example of 'main'. It is called from ```src/<PROJECT_NAME>/__main__.py```, so if you have renaming to do, it's there.
 
 
 ## Pip Package: setup.py
 
 [What is setup.py?](https://stackoverflow.com/questions/1471994/what-is-setup-py/23998536#23998536) on Stack Overflow <br />
-Basically, it will allow you to package your new awesome project using either ```pip install .``` or ```'python setup.py install```. <br />
+Basically, it will allow you to package your new awesome project using either ```pip install .``` or ```python setup.py install```. <br />
 Then, you will be able to use your package in a standard way: ```import <PROJECT_NAME>``` <br />
 <br />
 Don't forget to add your dependencies in ```setup.py```, in the 'install_requires' array.

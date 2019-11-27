@@ -75,7 +75,7 @@ Your project has been generated in $PROJECT_PATH!"
 if test "$PROJECT_EXE"; then
     echo "
 An example of 'main' has been created in '$PROJECT_PATH/src/$PROJECT_NAME/hello_world.py'
-It is called from '$PROJECT_PATH/src/$PROJECT_NAME/__main__.py', so if you have so renaming to do, it's there.
+It is called from '$PROJECT_PATH/src/$PROJECT_NAME/__main__.py', so if you have renaming to do, it's there.
 "
 else
     echo "
