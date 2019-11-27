@@ -12,7 +12,7 @@ Your python code should be place in the folder ```src/<PROJECT_NAME>```
 
 ## Pip Package: setup.py
 
-[What is setup.py?] on Stack Overflow
+[What is setup.py?](https://stackoverflow.com/questions/1471994/what-is-setup-py/23998536#23998536) on Stack Overflow
 Basically, it will allow you to package your new awesome project using either ```pip install .``` or ```'python setup.py install```. <br />
 Then, you will be able to use your package in a standard way: ```import <PROJECT_NAME>``` <br />
 <br />
